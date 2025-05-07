@@ -10,8 +10,12 @@ public class BasicGamingApp {
         // (SOMEWHAT) LOOSE COUPLING
 //        var game = new MarioGame();
 //        var game = new ContraGame();
-        var game = new PacmanGame();
-        var gameRunner = new GameRunner(game);
+
+        // right now,
+        var game = new PacmanGame();  // creating an object / instance of specific class
+        var gameRunner = new GameRunner(game); // creating an instance of GameRunner PLUS MANUALLY INJECTING A DEPENDENCY
+        // the game to be run is a DEPENDENCY of the GameRunner class
+        // instead of creating objects and injecting them wherever they are a dependency, give this responsibility to SPRING
         gameRunner.run();
 
     }
