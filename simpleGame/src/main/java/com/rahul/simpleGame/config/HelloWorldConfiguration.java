@@ -26,10 +26,16 @@ public class HelloWorldConfiguration {
         return new Person("Rahul", 30, new Address("Lokhandwala", "Massachussets"));
     }
 
-    // returning a Bean that depends on pre-existing beans
+    // returning a Bean that depends on pre-existing beans via method calls to predefined bean IDs
     @Bean(name = "personMethodCall")
     public Person person2() {
         return new Person(name(), age(), address());  // name(), age() already existing
+    }
+
+    // the parameter names must match pre-defined Bean IDs/methods exactly
+    @Bean(name = "personParameters")
+    public Person person3(String name, int age, Address address) {  // name, age, address
+        return new Person(name, age, address);
     }
 
     @Bean
