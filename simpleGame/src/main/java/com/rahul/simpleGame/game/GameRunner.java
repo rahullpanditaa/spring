@@ -1,9 +1,10 @@
 package com.rahul.simpleGame.game;
 
 public class GameRunner {
-    private MarioGame game;
+//    private MarioGame game;
+    private ContraGame game;
 
-    public GameRunner(MarioGame game) {
+    public GameRunner(ContraGame game) {
         this.game = game;
     }
 

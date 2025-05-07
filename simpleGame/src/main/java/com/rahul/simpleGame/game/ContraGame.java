@@ -1,0 +1,25 @@
+package com.rahul.simpleGame.game;
+
+public class ContraGame {
+
+    public void up() {
+        System.out.println("Jump!");
+    }
+
+    public void down() {
+        System.out.println("Look down!");
+    }
+
+    public void left() {
+        System.out.println("Go back!");
+    }
+
+    public void right() {
+        System.out.println("Fire!");
+    }
+
+    @Override
+    public String toString() {
+        return "Mario";
+    }
+}
