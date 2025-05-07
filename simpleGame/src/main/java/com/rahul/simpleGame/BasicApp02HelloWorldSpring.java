@@ -21,6 +21,7 @@ public class BasicApp02HelloWorldSpring {
 
         // will throw an error
         // 2 different beans returned are of type Integer
+        // make one bean @Primary
         System.out.println(context.getBean(Integer.class)); // using the type of bean returned instead of bean id to retrieve the bean
 
         System.out.println(context.getBean("personMethodCall"));

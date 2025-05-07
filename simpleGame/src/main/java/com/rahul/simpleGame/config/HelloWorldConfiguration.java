@@ -2,6 +2,7 @@ package com.rahul.simpleGame.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 record Person(String name,int age, Address address) {}
 record Address(String city, String state) {}
@@ -21,10 +22,11 @@ public class HelloWorldConfiguration {
         return 33;
     }
 
-//    @Bean
-//    public int age2() {
-//        return 44;
-//    }
+    @Bean
+    @Primary
+    public int age2() {
+        return 44;
+    }
 
     @Bean(name = "idiot")
     public Person person() {
