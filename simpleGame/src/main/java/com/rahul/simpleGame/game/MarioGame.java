@@ -2,7 +2,7 @@ package com.rahul.simpleGame.game;
 
 import org.springframework.stereotype.Component;
 
-//@Component
+@Component("mario")
 public class MarioGame implements GamingConsole {
 
     public void up() {

@@ -2,7 +2,7 @@ package com.rahul.simpleGame.game;
 
 import org.springframework.stereotype.Component;
 
-//@Component
+@Component("contra")
 public class ContraGame implements GamingConsole {
 
     public void up() {

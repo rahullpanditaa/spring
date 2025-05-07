@@ -2,7 +2,7 @@ package com.rahul.simpleGame.game;
 
 import org.springframework.stereotype.Component;
 
-@Component
+@Component("pacman")
 public class PacmanGame implements GamingConsole {
 
     public void up() {

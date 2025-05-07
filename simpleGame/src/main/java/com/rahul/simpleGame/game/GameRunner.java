@@ -1,14 +1,13 @@
 package com.rahul.simpleGame.game;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-//@Component
+@Component
 public class GameRunner {
-//    private MarioGame game;
-//    private ContraGame game;
     private GamingConsole game;
 
-    public GameRunner(GamingConsole game) {
+    public GameRunner(@Qualifier("contra") GamingConsole game) {
         this.game = game;
     }
 
