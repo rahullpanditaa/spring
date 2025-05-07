@@ -13,7 +13,9 @@ public class BasicApp02HelloWorldSpring {
         var context = new AnnotationConfigApplicationContext(HelloWorldConfiguration.class);
 
         // using method name (bean id) to get the bean it returns - retrieving beans managed by spring
-        System.out.println(context.getBean("name"));
+        System.out.println(context.getBean("name") + " is " + context.getBean("age") + " years old.");
+
+        System.out.println(context.getBean("person1"));
 
     }
 }
