@@ -1,4 +1,4 @@
-package com.rahul.simpleGame.config;
+package com.rahul.simpleGame.helloWorldExampleApp02;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
