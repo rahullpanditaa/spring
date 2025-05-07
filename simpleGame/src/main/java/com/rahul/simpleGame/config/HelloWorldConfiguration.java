@@ -21,10 +21,10 @@ public class HelloWorldConfiguration {
         return 33;
     }
 
-    @Bean
-    public int age2() {
-        return 44;
-    }
+//    @Bean
+//    public int age2() {
+//        return 44;
+//    }
 
     @Bean(name = "idiot")
     public Person person() {

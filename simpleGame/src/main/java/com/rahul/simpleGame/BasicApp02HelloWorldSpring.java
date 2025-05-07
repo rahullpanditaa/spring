@@ -29,5 +29,10 @@ public class BasicApp02HelloWorldSpring {
 
 //        System.out.println(context.getBean());
 
+        // viewing all the beans currently managed by Spring and the IOC Container
+        for (String bean : context.getBeanDefinitionNames()) {
+            System.out.println(bean);
+        }
+
     }
 }
