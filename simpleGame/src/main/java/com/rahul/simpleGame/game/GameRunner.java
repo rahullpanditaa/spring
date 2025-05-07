@@ -9,5 +9,7 @@ public class GameRunner {
 
     public void run() {
         System.out.println("Currently running game: " + game);
+        game.up();
+        game.right();
     }
 }
