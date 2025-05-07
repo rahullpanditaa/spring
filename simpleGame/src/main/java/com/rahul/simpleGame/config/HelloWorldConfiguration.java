@@ -21,6 +21,11 @@ public class HelloWorldConfiguration {
         return 33;
     }
 
+    @Bean
+    public int age2() {
+        return 44;
+    }
+
     @Bean(name = "idiot")
     public Person person() {
         return new Person("Rahul", 30, new Address("Lokhandwala", "Massachussets"));
@@ -41,5 +46,10 @@ public class HelloWorldConfiguration {
     @Bean
     public Address address() {
         return new Address("Gurgaon", "Haryana");
+    }
+
+    @Bean
+    public Address address2() {
+        return new Address("Noida", "Toronto");
     }
 }
