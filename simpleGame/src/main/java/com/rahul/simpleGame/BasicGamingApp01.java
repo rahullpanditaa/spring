@@ -8,12 +8,11 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class BasicGamingApp01 {
 
     public static void main(String[] args) {
-//        var game = new PacmanGame();
-//        var gameRunner = new GameRunner(game);
-//        gameRunner.run();
 
         try (var context = new AnnotationConfigApplicationContext(App01Configuration.class)) {
             System.out.println(context.getBean("mario"));
+            context.getBean(GameRunner.class).run();
+//            context.getBean("game").run(); // will not work
         }
 
     }

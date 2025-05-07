@@ -28,7 +28,7 @@ public class App01Configuration {
         return new PacmanGame();
     }
 
-    @Bean
+    @Bean(name = "game")
     public GameRunner gameRunner(@Qualifier("marioGame") GamingConsole game) {
         return new GameRunner(game);
     }
