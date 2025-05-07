@@ -3,7 +3,7 @@ package com.rahul.simpleGame.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-record Person(String name,int age) {}
+record Person(String name,int age, Address address) {}
 record Address(String city, String state) {}
 
 @Configuration
@@ -23,7 +23,13 @@ public class HelloWorldConfiguration {
 
     @Bean(name = "idiot")
     public Person person() {
-        return new Person("Rahul", 30);
+        return new Person("Rahul", 30, new Address("Lokhandwala", "Massachussets"));
+    }
+
+    // returning a Bean that depends on pre-existing beans
+    @Bean(name = "personMethodCall")
+    public Person person2() {
+        return new Person(name(), age(), address());  // name(), age() already existing
     }
 
     @Bean

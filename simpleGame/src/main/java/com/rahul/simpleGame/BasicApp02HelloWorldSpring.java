@@ -19,5 +19,9 @@ public class BasicApp02HelloWorldSpring {
         System.out.println(context.getBean("address"));
         System.out.println(context.getBean("idiot")); // using a custom bean ID instead of the method name
 
+        System.out.println(context.getBean(Integer.class)); // using the type of bean returned instead of bean id to retrieve the bean
+
+        System.out.println(context.getBean("personMethodCall"));
+
     }
 }
