@@ -15,8 +15,9 @@ public class BasicApp02HelloWorldSpring {
         // using method name (bean id) to get the bean it returns - retrieving beans managed by spring
         System.out.println(context.getBean("name") + " is " + context.getBean("age") + " years old.");
 
-        System.out.println(context.getBean("person1"));
+//        System.out.println(context.getBean("person"));
         System.out.println(context.getBean("address"));
+        System.out.println(context.getBean("idiot")); // using a custom bean ID instead of the method name
 
     }
 }

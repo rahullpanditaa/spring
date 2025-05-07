@@ -21,8 +21,8 @@ public class HelloWorldConfiguration {
         return 33;
     }
 
-    @Bean
-    public Person person1() {
+    @Bean(name = "idiot")
+    public Person person() {
         return new Person("Rahul", 30);
     }
 
