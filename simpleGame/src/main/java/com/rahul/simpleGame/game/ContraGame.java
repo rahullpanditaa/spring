@@ -1,6 +1,6 @@
 package com.rahul.simpleGame.game;
 
-public class ContraGame {
+public class ContraGame implements GamingConsole {
 
     public void up() {
         System.out.println("Jump!");
@@ -20,6 +20,6 @@ public class ContraGame {
 
     @Override
     public String toString() {
-        return "Mario";
+        return "Contra";
     }
 }
