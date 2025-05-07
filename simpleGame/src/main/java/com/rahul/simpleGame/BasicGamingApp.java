@@ -8,10 +8,10 @@ public class BasicGamingApp {
 
     public static void main(String[] args) {
 
-        // TIGHT COUPLING
-//        var marioGame = new MarioGame();
-        var contraGame = new ContraGame();
-        var gameRunner = new GameRunner(contraGame);
+        // (SOMEWHAT) LOOSE COUPLING
+        var game = new MarioGame();
+//        var game = new ContraGame();
+        var gameRunner = new GameRunner(game);
         gameRunner.run();
 
     }
