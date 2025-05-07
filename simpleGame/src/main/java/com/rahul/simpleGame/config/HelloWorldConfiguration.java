@@ -1,5 +1,6 @@
 package com.rahul.simpleGame.config;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -28,6 +29,12 @@ public class HelloWorldConfiguration {
         return 44;
     }
 
+    @Bean
+    @Qualifier("ageQualifier")
+    public int age3() {
+        return 99999;
+    }
+
     @Bean(name = "idiot")
     public Person person() {
         return new Person("Rahul", 30, new Address("Lokhandwala", "Massachussets"));
@@ -36,7 +43,7 @@ public class HelloWorldConfiguration {
     // returning a Bean that depends on pre-existing beans via method calls to predefined bean IDs
     @Bean(name = "personMethodCall")
     public Person person2() {
-        return new Person(name(), age(), address());  // name(), age() already existing
+        return new Person(name(),  age(), address());  // name(), age() already existing
     }
 
     // the parameter names must match pre-defined Bean IDs/methods exactly
