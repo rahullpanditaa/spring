@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 public class CourseController {
-    
+
     @RequestMapping("/courses")
     public List<Course> retrieveAllCourses() {
         return Arrays.asList(new Course(1, "Learn the electric guitar", "Jimmy Hendrix"),
