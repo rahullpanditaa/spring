@@ -1,4 +1,4 @@
-package com.rahul.jpa_hibernate;
+package com.rahul.jpa_hibernate.course;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

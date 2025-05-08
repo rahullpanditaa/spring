@@ -3,17 +3,19 @@ package com.rahul.jpa_hibernate.course;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "courses")
 public class Course {
 
     @Id
     private Long id;
 
-    @Column(name = "name")
+//    @Column(name = "name")
     private String name;
 
-    @Column(name = "author")
+//    @Column(name = "author")
     private String author;
 
     public Course() {}
