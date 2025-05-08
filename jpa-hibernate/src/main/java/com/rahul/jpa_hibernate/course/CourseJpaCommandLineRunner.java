@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 @Component
-//@Profile("jpa")
+@Profile("jpa")
 public class CourseJpaCommandLineRunner implements CommandLineRunner {
     @Autowired
     private CourseJpaRepository jpaRepository;

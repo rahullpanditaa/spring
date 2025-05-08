@@ -5,8 +5,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
-//@Component
-//@Profile("jdbc")
+@Component
+@Profile("jdbc")
 // run method of a bean that implements this interface should run at the startup of a spring application
 public class CourseJdbcCommandLineRunner implements CommandLineRunner {
 
