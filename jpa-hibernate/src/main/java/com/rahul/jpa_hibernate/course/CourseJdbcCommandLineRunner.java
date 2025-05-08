@@ -21,7 +21,9 @@ public class CourseJdbcCommandLineRunner implements CommandLineRunner {
         jdbcRepository.insert(new Course(2L, "Literature", "Sylvia Plath"));
         jdbcRepository.insert(new Course(3L, "Morality", "Raskolnikov"));
 
-        jdbcRepository.deleteById(3L);
+        jdbcRepository.deleteById(1L);
+
+        System.out.println(jdbcRepository.findById(2L));
 
     }
 }

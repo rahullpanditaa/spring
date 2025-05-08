@@ -8,6 +8,8 @@ public class Course {
     private String name;
     private String author;
 
+    public Course() {}
+
     public Course(Long id, String name, String author) {
         this.id = id;
         this.name = name;
@@ -24,6 +26,18 @@ public class Course {
 
     public String getAuthor() {
         return author;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     @Override

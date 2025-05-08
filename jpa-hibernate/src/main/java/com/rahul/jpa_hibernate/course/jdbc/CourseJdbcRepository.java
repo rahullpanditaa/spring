@@ -2,6 +2,7 @@ package com.rahul.jpa_hibernate.course.jdbc;
 
 import com.rahul.jpa_hibernate.course.Course;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -20,6 +21,10 @@ public class CourseJdbcRepository {
             DELETE FROM courses
             WHERE id=?
             """;
+    private static final String SELECT_QUERY = """
+            SELECT * FROM courses
+            WHERE id=?
+            """;
 
     public void insert(Course course) {
         springJdbcTemplate.update(INSERT_QUERY, course.getId(), course.getName(), course.getAuthor());
@@ -27,5 +32,11 @@ public class CourseJdbcRepository {
 
     public void deleteById(Long id) {
         springJdbcTemplate.update(DELETE_QUERY, id);
+    }
+
+    public Course findById(Long id) {
+        // map the result of this query to a bean
+        // result set -> bean using row mapper
+        return springJdbcTemplate.queryForObject(SELECT_QUERY, new BeanPropertyRowMapper<>(Course.class), id);
     }
 }
