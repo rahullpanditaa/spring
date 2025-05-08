@@ -1,11 +1,19 @@
 package com.rahul.jpa_hibernate.course;
 
-import org.springframework.stereotype.Component;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
-
+@Entity
 public class Course {
+
+    @Id
     private Long id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "author")
     private String author;
 
     public Course() {}
