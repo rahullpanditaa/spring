@@ -1,11 +1,8 @@
-package com.rahul.simpleGame;
+package com.rahul.simpleGame.App01;
 
-import com.rahul.simpleGame.config.App01Configuration;
-import com.rahul.simpleGame.game.GameRunner;
-import com.rahul.simpleGame.game.GamingConsole;
-import com.rahul.simpleGame.game.PacmanGame;
+import com.rahul.simpleGame.App01.config.App01Configuration;
+import com.rahul.simpleGame.App01.game.GameRunner;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
 
 
 public class BasicGamingApp01 {

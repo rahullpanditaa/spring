@@ -1,4 +1,4 @@
-package com.rahul.simpleGame.game;
+package com.rahul.simpleGame.App01.game;
 
 public interface GamingConsole {
 

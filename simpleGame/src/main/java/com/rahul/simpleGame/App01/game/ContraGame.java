@@ -1,16 +1,16 @@
-package com.rahul.simpleGame.game;
+package com.rahul.simpleGame.App01.game;
 
 import org.springframework.stereotype.Component;
 
-@Component("mario")
-public class MarioGame implements GamingConsole {
+@Component("contra")
+public class ContraGame implements GamingConsole {
 
     public void up() {
         System.out.println("Jump!");
     }
 
     public void down() {
-        System.out.println("Duck!");
+        System.out.println("Look down!");
     }
 
     public void left() {
@@ -18,11 +18,11 @@ public class MarioGame implements GamingConsole {
     }
 
     public void right() {
-        System.out.println("Go forward!");
+        System.out.println("Fire!");
     }
 
     @Override
     public String toString() {
-        return "Mario";
+        return "Contra";
     }
 }
