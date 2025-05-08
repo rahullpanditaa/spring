@@ -12,9 +12,7 @@ import java.util.List;
 
 @RestController
 public class CourseController {
-
-    // need to map a url to this specific method
-    // requests to that url will result in call to this method
+    
     @RequestMapping("/courses")
     public List<Course> retrieveAllCourses() {
         return Arrays.asList(new Course(1, "Learn the electric guitar", "Jimmy Hendrix"),
