@@ -18,6 +18,10 @@ public class CourseJdbcCommandLineRunner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         jdbcRepository.insert(new Course(1L, "Philosophy", "Bertrand Russell"));
+        jdbcRepository.insert(new Course(2L, "Literature", "Sylvia Plath"));
+        jdbcRepository.insert(new Course(3L, "Morality", "Raskolnikov"));
+
+        jdbcRepository.deleteById(3L);
 
     }
 }
