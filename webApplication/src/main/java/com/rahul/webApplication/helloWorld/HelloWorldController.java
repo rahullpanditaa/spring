@@ -33,4 +33,10 @@ public class HelloWorldController {
         stringBuilder.append("</html>");
         return stringBuilder.toString();
     }
+
+    // using JSP to return a view
+    @RequestMapping("hello-html-jsp")
+    public String helloHtmlJsp() {
+        return "hello";  // this will be resolved as a view name (hello.jsp)
+    }
 }
