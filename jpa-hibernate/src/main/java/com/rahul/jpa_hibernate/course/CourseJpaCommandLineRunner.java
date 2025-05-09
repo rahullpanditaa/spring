@@ -28,5 +28,7 @@ public class CourseJpaCommandLineRunner implements CommandLineRunner {
 
         System.out.println(jpaRepository.findAll());
         System.out.println(jpaRepository.count());
+        System.out.println(jpaRepository.findByAuthor("Raskolnikov"));
+        System.out.println(jpaRepository.findByName("Literature"));
     }
 }
