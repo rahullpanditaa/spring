@@ -16,8 +16,8 @@ public class HelloWorldController {
         return "Hello World";
     }
 
-    @RequestMapping("hello-html")
-    @ResponseBody // this annotation tells spring to write the return values directly to the http response body
+//    @RequestMapping("hello-html")
+//    @ResponseBody // this annotation tells spring to write the return values directly to the http response body
     // instead of resolving it as the name of a view to be rendered
     public String helloHtml() {
         StringBuilder stringBuilder = new StringBuilder();
@@ -35,7 +35,7 @@ public class HelloWorldController {
     }
 
     // using JSP to return a view
-    @RequestMapping("hello-html-jsp")
+    @RequestMapping("hello-html")
     public String helloHtmlJsp() {
         return "hello";  // this will be resolved as a view name (hello.jsp)
     }
