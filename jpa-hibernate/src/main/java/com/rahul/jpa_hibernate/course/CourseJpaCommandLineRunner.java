@@ -25,5 +25,8 @@ public class CourseJpaCommandLineRunner implements CommandLineRunner {
         jpaRepository.deleteById(1L);
 
         System.out.println(jpaRepository.findById(2L));
+
+        System.out.println(jpaRepository.findAll());
+        System.out.println(jpaRepository.count());
     }
 }
