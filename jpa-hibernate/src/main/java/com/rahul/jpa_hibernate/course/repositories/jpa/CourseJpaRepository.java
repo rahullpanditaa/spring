@@ -1,4 +1,4 @@
-package com.rahul.jpa_hibernate.course.jpa;
+package com.rahul.jpa_hibernate.course.repositories.jpa;
 
 import com.rahul.jpa_hibernate.course.Course;
 import jakarta.persistence.EntityManager;

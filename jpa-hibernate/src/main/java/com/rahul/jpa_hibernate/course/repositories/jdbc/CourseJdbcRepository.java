@@ -1,4 +1,4 @@
-package com.rahul.jpa_hibernate.course.jdbc;
+package com.rahul.jpa_hibernate.course.repositories.jdbc;
 
 import com.rahul.jpa_hibernate.course.Course;
 import org.springframework.beans.factory.annotation.Autowired;

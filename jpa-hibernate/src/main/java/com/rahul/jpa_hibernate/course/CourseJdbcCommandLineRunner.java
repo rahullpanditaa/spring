@@ -1,9 +1,7 @@
 package com.rahul.jpa_hibernate.course;
 
-import com.rahul.jpa_hibernate.course.jdbc.CourseJdbcRepository;
+import com.rahul.jpa_hibernate.course.repositories.jdbc.CourseJdbcRepository;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.annotation.Profile;
-import org.springframework.stereotype.Component;
 
 //@Component
 //@Profile("jdbc")
