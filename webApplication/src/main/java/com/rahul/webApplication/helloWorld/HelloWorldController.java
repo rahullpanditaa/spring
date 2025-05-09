@@ -15,4 +15,22 @@ public class HelloWorldController {
     public String hello() {
         return "Hello World";
     }
+
+    @RequestMapping("hello-html")
+    @ResponseBody // this annotation tells spring to write the return values directly to the http response body
+    // instead of resolving it as the name of a view to be rendered
+    public String helloHtml() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("<html>");
+        stringBuilder.append("<head>");
+        stringBuilder.append("<title>Practice Page</title>");
+        stringBuilder.append("</head>");
+        stringBuilder.append("<body>");
+        stringBuilder.append("<h1>Welcome to My Page</h1>");
+        stringBuilder.append("<p>This is a paragraph of text for testing purposes.</p>");
+        stringBuilder.append("<p>Writing return value (in this case, some html) directly to http response body.</p>");
+        stringBuilder.append("</body>");
+        stringBuilder.append("</html>");
+        return stringBuilder.toString();
+    }
 }
