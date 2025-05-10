@@ -6,7 +6,26 @@
 </head>
 <body>
     <h1>List of tasks</h1>
-    <div th:text="${tasks}"></div>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Teacher's Name</th>
+                <th>Course Name</th>
+                <th>Target Date</th>
+                <th>Completed?</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="task : ${tasks}">
+                <td th:text="${task.id}"></td>
+                <td th:text="${task.name}"></td>
+                <td th:text="${task.description}"></td>
+                <td th:text="${task.targetDate}"></td>
+                <td th:text="${task.done}"></td>
+            </tr>
+        </tbody>
+    </table>
 
 </body>
 </html>

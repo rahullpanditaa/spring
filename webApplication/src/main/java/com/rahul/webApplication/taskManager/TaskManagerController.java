@@ -16,7 +16,7 @@ public class TaskManagerController {
     }
 
     // list all tasks
-    @RequestMapping("list-tasks")
+    @RequestMapping("/list-tasks")
     public String listAllTasks(ModelMap model) {
         model.addAttribute("tasks", taskManagerService.findByTeacherName("blah"));
         return "listTasks";
