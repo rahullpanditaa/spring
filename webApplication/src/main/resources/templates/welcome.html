@@ -2,11 +2,16 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.2/css/bootstrap.min.css}">
     <title>Welcome Page</title>
 </head>
 <body>
+<div class="container">
     <div>Welcome Back!</div>
     <div>Your name: <span th:text="${name} ?: 'User not found'"></span></div>
     <div><a href="/list-tasks">Manage your tasks</a> </div>
+</div>
+    <script th:src="@{/webjars/jquery/3.7.1/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/5.3.2/js/bootstrap.bundle.min.js}"></script>
 </body>
 </html>
