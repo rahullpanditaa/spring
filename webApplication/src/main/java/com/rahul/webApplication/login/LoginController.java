@@ -22,6 +22,11 @@ public class LoginController {
     public String goToWelcomePage(@RequestParam String name, @RequestParam String password, ModelMap model) {
         model.put("name", name);
         model.put("password", password);
-        return "welcome";
+
+        // authentication logic
+        // name - razumikhin
+        // password - dunechka
+        var authService = new AuthenticationService().authenticate(name,password); // boolean value
+        return authService ? "welcome" : "login";
     }
 }
