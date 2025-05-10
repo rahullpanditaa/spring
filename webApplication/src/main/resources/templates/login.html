@@ -6,7 +6,7 @@
 </head>
 <body>
     <h1>Welcome. Please log in.</h1>
-    <h2><span th:text="${name} ? 'Guest'"></span></h2>
+    <h2><span th:text="${name} ?: 'Guest'"></span></h2>
 
 </body>
 </html>
