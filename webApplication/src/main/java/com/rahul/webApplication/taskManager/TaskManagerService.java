@@ -1,10 +1,14 @@
 package com.rahul.webApplication.taskManager;
 
+import org.springframework.stereotype.Service;
+
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class TaskManagerService {
-    private static List<Todo> tasks;
+    private static List<Todo> tasks = new ArrayList<>();
     static {
         tasks.add(new Todo(1L,"Sylvia Plath", "Literature 101",
                 LocalDate.now().plusWeeks(4), false));
