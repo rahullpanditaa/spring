@@ -21,4 +21,10 @@ public class TaskManagerController {
         model.addAttribute("tasks", taskManagerService.findByTeacherName("blah"));
         return "listTasks";
     }
+
+    // endpoint for adding a new task
+    @RequestMapping("/add-task")
+    public String addNewTask(ModelMap model) {
+        return "addTask";
+    }
 }
