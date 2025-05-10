@@ -12,6 +12,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class LoginController {
 
+    private AuthenticationService authenticationService;
+
+    public LoginController(AuthenticationService authenticationService) {
+        this.authenticationService = authenticationService;
+    }
+
     // only use this method for a GET request (displaying the login page)
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginPage() {
@@ -26,7 +32,12 @@ public class LoginController {
         // authentication logic
         // name - razumikhin
         // password - dunechka
-        var authService = new AuthenticationService().authenticate(name,password); // boolean value
-        return authService ? "welcome" : "login";
+        var authService = authenticationService.authenticate(name,password); // boolean value
+//        return authService ? "welcome" : "login";
+        if (authService) {
+            return "welcome";
+        }
+        model.put("errorMessage", "Invalid Credentials. Please try again");
+        return "login";
     }
 }
