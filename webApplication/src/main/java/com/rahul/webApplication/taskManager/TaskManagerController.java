@@ -3,6 +3,7 @@ package com.rahul.webApplication.taskManager;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
@@ -23,8 +24,16 @@ public class TaskManagerController {
     }
 
     // endpoint for adding a new task
-    @RequestMapping("/add-task")
-    public String addNewTask(ModelMap model) {
+    // map to this method if a GET request is received i.e. submitting the new task details
+    @RequestMapping(value = "/add-task", method = RequestMethod.GET)
+    public String addNewTaskPage() {
         return "addTask";
     }
+
+    @RequestMapping(value = "/add-task", method = RequestMethod.POST)
+    public String newTaskAdded(ModelMap model) {
+        model.addAttribute("tasks", taskManagerService.findByTeacherName("bluhh"));
+        return "redirect:/list-tasks";
+    }
+
 }
