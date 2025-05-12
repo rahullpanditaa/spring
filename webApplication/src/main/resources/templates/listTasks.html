@@ -6,33 +6,35 @@
     <title>Task Manager</title>
 </head>
 <body>
-    <div class="container">
+<div class="container">
     <h1>List of tasks</h1>
     <table class="table">
         <thead>
-            <tr>
-                <th>ID</th>
-                <th>Teacher's Name</th>
-                <th>Course Name</th>
-                <th>Target Date</th>
-                <th>Completed?</th>
-            </tr>
+        <tr>
+            <th>ID</th>
+            <th>Teacher's Name</th>
+            <th>Course Name</th>
+            <th>Target Date</th>
+            <th>Completed?</th>
+            <th></th>
+        </tr>
         </thead>
         <tbody>
-            <tr th:each="task : ${tasks}">
-                <td th:text="${task.id}"></td>
-                <td th:text="${task.name}"></td>
-                <td th:text="${task.description}"></td>
-                <td th:text="${task.targetDate}"></td>
-                <td th:text="${task.done}"></td>
-            </tr>
+        <tr th:each="task : ${tasks}">
+            <td th:text="${task.id}"></td>
+            <td th:text="${task.name}"></td>
+            <td th:text="${task.description}"></td>
+            <td th:text="${task.targetDate}"></td>
+            <td th:text="${task.done}"></td>
+            <td><a href="delete-task" class="btn btn-success">Delete</a> </td>
+        </tr>
         </tbody>
     </table>
-        <a href="/add-task" class="btn btn-success">Add a new task</a>
-    </div>
+    <a href="/add-task" class="btn btn-success">Add a new task</a>
+</div>
 
-    <script th:src="@{/webjars/jquery/3.7.1/jquery.min.js}"></script>
-    <script th:src="@{/webjars/bootstrap/5.3.2/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/webjars/jquery/3.7.1/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/5.3.2/js/bootstrap.bundle.min.js}"></script>
 
 </body>
 </html>
