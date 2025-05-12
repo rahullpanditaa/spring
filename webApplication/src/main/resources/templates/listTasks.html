@@ -26,7 +26,7 @@
             <td th:text="${task.description}"></td>
             <td th:text="${task.targetDate}"></td>
             <td th:text="${task.done}"></td>
-            <td><a href="delete-task" class="btn btn-success">Delete</a> </td>
+            <td><a th:href="@{/delete-task(id=${task.id})}" class="btn btn-warning">Delete</a> </td>
         </tr>
         </tbody>
     </table>

@@ -46,4 +46,12 @@ public class TaskManagerController {
         return "redirect:/list-tasks";
     }
 
+    @RequestMapping(value = "/delete-task")
+    public String deleteTask(@RequestParam int id) {
+        // delete todo
+        taskManagerService.deleteTaskById(id);
+        return "redirect:/list-tasks";
+//        return "deleteTask";
+    }
+
 }

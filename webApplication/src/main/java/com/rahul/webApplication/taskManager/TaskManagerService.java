@@ -4,12 +4,13 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 @Service
 public class TaskManagerService {
     private static List<Todo> tasks = new ArrayList<>();
-    private static Long tasksCount = 0L;
+    private static Long tasksCount = 1L;
     static {
         tasks.add(new Todo(tasksCount++,"Sylvia Plath", "Literature 101",
                 LocalDate.now().plusWeeks(4), false));
@@ -26,5 +27,16 @@ public class TaskManagerService {
 
     public void addTask(String name, String description, LocalDate targetDate, boolean completed) {
         tasks.add(new Todo(tasksCount++, name, description, targetDate, completed));
+    }
+
+    public void deleteTaskById(int id) {
+        Iterator<Todo> iterator = tasks.iterator();
+        while (iterator.hasNext()) {
+            Todo todo = iterator.next();
+            if (todo.getId().equals(Long.valueOf(id))) {
+                iterator.remove();
+            }
+        }
+
     }
 }
