@@ -2,6 +2,7 @@ package com.rahul.webApplication.taskManager;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,13 +29,15 @@ public class TaskManagerController {
     // endpoint for adding a new task
     // map to this method if a GET request is received i.e. submitting the new task details
     @RequestMapping(value = "/add-task", method = RequestMethod.GET)
-    public String addNewTaskPage() {
+    public String addNewTaskPage(ModelMap model) {
+        model.addAttribute("task", new Todo());
         return "addTask";
     }
 
     @RequestMapping(value = "/add-task", method = RequestMethod.POST)
-    public String newTaskAdded(ModelMap model, @RequestParam String description) {
-        taskManagerService.addTask((String) model.get("name"), description, LocalDate.now().plusMonths(2),false);
+    public String newTaskAdded(@ModelAttribute Todo todo) { // binds form fields to a Todo object
+        // spring will automatically fill "Todo" with the submitted form values
+        taskManagerService.addTask("Default", todo.getDescription(), LocalDate.now().plusMonths(2),false);
         return "redirect:/list-tasks";
     }
 

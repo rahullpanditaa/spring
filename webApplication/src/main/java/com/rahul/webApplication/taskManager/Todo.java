@@ -9,6 +9,8 @@ public class Todo {
     private LocalDate targetDate;
     private boolean done;
 
+    public Todo() {}
+
     public Todo(Long id, String name, String description, LocalDate targetDate, boolean done) {
         this.id = id;
         this.name = name;
