@@ -4,7 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Controller
@@ -31,8 +33,8 @@ public class TaskManagerController {
     }
 
     @RequestMapping(value = "/add-task", method = RequestMethod.POST)
-    public String newTaskAdded(ModelMap model) {
-        model.addAttribute("tasks", taskManagerService.findByTeacherName("bluhh"));
+    public String newTaskAdded(ModelMap model, @RequestParam String description) {
+        taskManagerService.addTask((String) model.get("name"), description, LocalDate.now().plusMonths(2),false);
         return "redirect:/list-tasks";
     }
 
