@@ -1,6 +1,7 @@
 package com.rahul.webApplication.taskManager;
 
 import jakarta.validation.Valid;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -24,8 +25,14 @@ public class TaskManagerController {
     // list all tasks
     @RequestMapping("/list-tasks")
     public String listAllTasks(ModelMap model) {
-        model.addAttribute("tasks", taskManagerService.findByTeacherName("blah"));
+        String username = getLoggedInUsername();
+        model.addAttribute("tasks", taskManagerService.findByTeacherName(username));
         return "listTasks";
+    }
+
+    private String getLoggedInUsername() {
+        var authentication = SecurityContextHolder.getContext().getAuthentication();
+        return authentication.getName();
     }
 
     // endpoint for adding a new task

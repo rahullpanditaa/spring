@@ -13,15 +13,22 @@ public class TaskManagerService {
     private static List<Todo> tasks = new ArrayList<>();
     private static Long tasksCount = 1L;
     static {
-        tasks.add(new Todo(tasksCount++,"Sylvia Plath", "Literature 101",
+        tasks.add(new Todo(tasksCount++,"Raskolnikov", "Literature 101",
                 LocalDate.now().plusWeeks(4), false));
-        tasks.add(new Todo(tasksCount++,"Porfiry Petrovich", "Socalism",
+        tasks.add(new Todo(tasksCount++,"Raskolnikov", "Socalism",
                 LocalDate.now().plusMonths(4), false));
-        tasks.add(new Todo(tasksCount++,"Viktor Frankl", "Logotherapy",
+        tasks.add(new Todo(tasksCount++,"Raskolnikov", "Logotherapy",
                 LocalDate.now().plusYears(4), false));
     }
 
     public List<Todo> findByTeacherName(String name) {
+        Iterator<Todo> iterator = tasks.iterator();
+        while (iterator.hasNext()) {
+            Todo todo = iterator.next();
+            if (!(todo.getName().equalsIgnoreCase(name))) {
+                 iterator.remove();
+            }
+        }
         return tasks;
 
     }
