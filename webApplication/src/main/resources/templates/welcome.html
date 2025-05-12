@@ -7,8 +7,19 @@
 </head>
 <body>
 <div class="container">
-    <div>Welcome Back!</div>
-    <div>Your name: <span th:text="${name} ?: 'User not found'"></span></div>
+    <nav class="navbar navbar-expand-md navbar-light bg-light mb-3 p-1">
+        <a class="navbar-brand m-1" href="https://www.youtube.com/watch?v=xvFZjo5PgG0">IMPORTANT!!</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/list-tasks">Todos</a></li>
+            </ul>
+        </div>
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+    <div>Welcome <span th:text="${name} ?: 'User not found'"></span>!</div>
     <div><a href="/list-tasks">Manage your tasks</a> </div>
 </div>
 <script th:src="@{/webjars/jquery/3.7.1/jquery.min.js}"></script>

@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class LoginController {
+public class WelcomeController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String loginPage(ModelMap model) {
+    public String goToWelcomePage(ModelMap model) {
         model.put("name", "Razumikhin");
         return "welcome";
     }
