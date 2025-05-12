@@ -9,7 +9,11 @@
     <div class="container">
         <h1>Enter task details</h1>
         <form th:action="@{/add-task}" th:object="${todo}" method="post">
-            Description : <input type="text" name="description" required="required">
+            Description : <input type="text" th:field="*{description}" required="required">
+
+            <div th:if="${#fields.hasErrors('description')}" class="text-danger">
+                <p th:errors="*{description}"></p>
+            </div>
             <input type="submit" class="btn btn-success">
         </form>
 

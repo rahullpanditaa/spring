@@ -1,10 +1,14 @@
 package com.rahul.webApplication.taskManager;
 
+import jakarta.validation.constraints.Size;
+
 import java.time.LocalDate;
 
 public class Todo {
     private Long id;
     private String name;
+
+    @Size(min = 10, message = "Minimum 10 characters required")
     private String description;
     private LocalDate targetDate;
     private boolean done;
