@@ -54,4 +54,21 @@ public class TaskManagerController {
 //        return "deleteTask";
     }
 
+    @RequestMapping(value = "/update-task", method = RequestMethod.GET)
+    public String updateTaskPage(@RequestParam int id, ModelMap model) {
+        Todo todo = taskManagerService.findById(id);
+        model.addAttribute("todo", todo);
+        return "addTask";
+    }
+
+    @RequestMapping(value = "/update-task", method = RequestMethod.POST)
+    public String updateTask(@Valid @ModelAttribute Todo todo, BindingResult result) {
+        if (result.hasErrors()) {
+            return "addTask";
+        }
+
+        taskManagerService.updateTodo(todo);
+        return "redirect:/list-tasks";
+    }
+
 }

@@ -7,6 +7,18 @@
 </head>
 <body>
 <div class="container">
+    <nav class="navbar navbar-expand-md navbar-light bg-light mb-3 p-1">
+        <a class="navbar-brand m-1" href="https://www.youtube.com/watch?v=xvFZjo5PgG0">IMPORTANT!!</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/list-tasks">Todos</a></li>
+            </ul>
+        </div>
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+        </ul>
+    </nav>
     <h1>List of tasks</h1>
     <table class="table">
         <thead>
@@ -17,6 +29,7 @@
             <th>Target Date</th>
             <th>Completed?</th>
             <th></th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -26,6 +39,7 @@
             <td th:text="${task.description}"></td>
             <td th:text="${task.targetDate}"></td>
             <td th:text="${task.done}"></td>
+            <td><a th:href="@{/update-task(id=${task.id})}" class="btn btn-success">Update task</a> </td>
             <td><a th:href="@{/delete-task(id=${task.id})}" class="btn btn-warning">Delete</a> </td>
         </tr>
         </tbody>

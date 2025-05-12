@@ -1,5 +1,6 @@
 package com.rahul.webApplication.taskManager;
 
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -37,6 +38,21 @@ public class TaskManagerService {
                 iterator.remove();
             }
         }
+    }
 
+    public Todo findById(int id) {
+        Iterator<Todo> iterator = tasks.iterator();
+        while (iterator.hasNext()) {
+            Todo todo = iterator.next();
+            if (todo.getId().equals(Long.valueOf(id))) {
+                return todo;
+            }
+        }
+        return null;
+    }
+
+    public void updateTodo(@Valid Todo todo) {
+        deleteTaskById(todo.getId().intValue());
+        tasks.add(todo);
     }
 }
