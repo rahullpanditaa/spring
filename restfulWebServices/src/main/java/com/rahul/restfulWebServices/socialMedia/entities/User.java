@@ -17,6 +17,8 @@ public class User {
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate birthDate;
 
+    public User() {}  // JPA uses the default no arg constructor to create objects when retrieving from db
+
     public User(Integer id, String name, LocalDate birthDate) {
         this.id = id;
         this.name = name;
