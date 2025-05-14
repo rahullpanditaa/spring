@@ -1,16 +1,24 @@
 package com.rahul.webApplication.taskManager;
 
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "Tasks")
 public class Todo {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
 
     @Size(min = 10, message = "Minimum 10 characters required")
     private String description;
     private LocalDate targetDate;
+
     private boolean done;
 
     public Todo() {}
