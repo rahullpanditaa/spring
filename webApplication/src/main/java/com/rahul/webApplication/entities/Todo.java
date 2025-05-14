@@ -1,4 +1,4 @@
-package com.rahul.webApplication.taskManager;
+package com.rahul.webApplication.entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;

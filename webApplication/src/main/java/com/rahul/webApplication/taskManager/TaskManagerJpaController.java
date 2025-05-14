@@ -1,6 +1,7 @@
 package com.rahul.webApplication.taskManager;
 
 import com.rahul.webApplication.entities.Todo;
+import com.rahul.webApplication.repositories.TodoRepository;
 import jakarta.validation.Valid;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -13,20 +14,22 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDate;
 
-//@Controller
-public class TaskManagerController {
+@Controller
+public class TaskManagerJpaController {
 
     private TaskManagerService taskManagerService;
+    private TodoRepository todoRepository;
 
-    public TaskManagerController(TaskManagerService taskManagerService) {
+    public TaskManagerJpaController(TaskManagerService taskManagerService, TodoRepository repository) {
         this.taskManagerService = taskManagerService;
+        this.todoRepository = repository;
     }
 
     // list all tasks
     @RequestMapping("/list-tasks")
     public String listAllTasks(ModelMap model) {
         String username = getLoggedInUsername();
-        model.addAttribute("tasks", taskManagerService.findByTeacherName(username));
+        model.addAttribute("tasks", todoRepository.findByName(username));
         return "listTasks";
     }
 
@@ -79,3 +82,4 @@ public class TaskManagerController {
     }
 
 }
+
