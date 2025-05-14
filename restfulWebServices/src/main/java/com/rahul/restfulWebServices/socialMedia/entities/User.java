@@ -1,5 +1,6 @@
 package com.rahul.restfulWebServices.socialMedia.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -12,6 +13,8 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
+
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate birthDate;
 
     public User(Integer id, String name, LocalDate birthDate) {

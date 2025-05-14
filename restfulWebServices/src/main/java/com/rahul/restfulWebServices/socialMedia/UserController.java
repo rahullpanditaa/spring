@@ -2,6 +2,8 @@ package com.rahul.restfulWebServices.socialMedia;
 
 import com.rahul.restfulWebServices.socialMedia.entities.User;
 import com.rahul.restfulWebServices.socialMedia.repositories.UserRepository;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,17 +18,18 @@ public class UserController {
     }
 
     @GetMapping("/users")
-    public List<User> findAll() {
+    public List<User> retrieveAllUsers() {
         return userRepository.findAll();
     }
 
     @PostMapping("/users")
-    public User save(User user) {
-        return userRepository.save(user);
+    public ResponseEntity<User> createUser(@RequestBody User user) {
+        User savedUser = userRepository.save(user);
+        return ResponseEntity.status(HttpStatus.CREATED).body(user);
     }
 
     @GetMapping("/users/{id}")
-    public User findOne(@PathVariable Integer id) {
+    public User findUser(@PathVariable Integer id) {
         return userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found with given id: " + id));
     }
 
