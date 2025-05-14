@@ -1,6 +1,7 @@
 package com.rahul.restfulWebServices.socialMedia;
 
 import com.rahul.restfulWebServices.socialMedia.entities.User;
+import com.rahul.restfulWebServices.socialMedia.exceptions.UserNotFoundException;
 import com.rahul.restfulWebServices.socialMedia.repositories.UserRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
