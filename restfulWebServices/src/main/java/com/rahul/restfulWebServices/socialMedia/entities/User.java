@@ -2,6 +2,9 @@ package com.rahul.restfulWebServices.socialMedia.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.Size;
 
 import java.time.LocalDate;
 
@@ -12,9 +15,13 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @NotNull(message = "Name cannot be empty")
+    @Size(min = 2, message = "Name must have at least 2 characters")
     private String name;
 
     @JsonFormat(pattern = "yyyy-MM-dd")
+    @Past(message = "The date of birth must be in the past")
     private LocalDate birthDate;
 
     public User() {}  // JPA uses the default no arg constructor to create objects when retrieving from db
