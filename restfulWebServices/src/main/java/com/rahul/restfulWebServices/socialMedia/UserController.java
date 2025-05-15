@@ -3,6 +3,7 @@ package com.rahul.restfulWebServices.socialMedia;
 import com.rahul.restfulWebServices.socialMedia.entities.User;
 import com.rahul.restfulWebServices.socialMedia.exceptions.UserNotFoundException;
 import com.rahul.restfulWebServices.socialMedia.repositories.UserRepository;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -26,7 +27,7 @@ public class UserController {
     }
 
     @PostMapping("/users")
-    public ResponseEntity<User> createUser(@RequestBody User user) {
+    public ResponseEntity<User> createUser(@Valid @RequestBody User user) {
         User savedUser = userRepository.save(user);
 
         URI location = ServletUriComponentsBuilder
