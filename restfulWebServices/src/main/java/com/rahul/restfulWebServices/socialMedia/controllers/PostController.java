@@ -32,10 +32,16 @@ public class PostController {
 
     @PostMapping("/users/{id}/posts")
     public ResponseEntity<Post> createPostForAUser(@RequestBody Post post, @PathVariable Integer id) {
-        Post newPost = postRepository.save(post);
+//        Post newPost = postRepository.save(post);
+        User user = userRepository.findById(id).orElseThrow(() -> new UserNotFoundException("User not found with id: " + id));
+        post.setUser(user);
 
-        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}/posts").buildAndExpand(newPost.getId()).toUri();
+        Post savedPost = postRepository.save(post);
+
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(savedPost.getId()).toUri();
 
         return ResponseEntity.created(location).build();
     }
+
+
 }
