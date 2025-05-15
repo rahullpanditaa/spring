@@ -1,11 +1,10 @@
-package com.rahul.restfulWebServices.socialMedia;
+package com.rahul.restfulWebServices.socialMedia.controllers;
 
 import com.rahul.restfulWebServices.socialMedia.entities.User;
 import com.rahul.restfulWebServices.socialMedia.exceptions.UserNotFoundException;
 import com.rahul.restfulWebServices.socialMedia.repositories.UserRepository;
 import jakarta.validation.Valid;
 import org.springframework.hateoas.EntityModel;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
