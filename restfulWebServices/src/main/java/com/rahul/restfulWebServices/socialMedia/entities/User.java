@@ -1,12 +1,15 @@
 package com.rahul.restfulWebServices.socialMedia.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -23,6 +26,10 @@ public class User {
     @JsonFormat(pattern = "yyyy-MM-dd")
     @Past(message = "The date of birth must be in the past")
     private LocalDate birthDate;
+
+    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    private List<Post> posts = new ArrayList<>();
 
     public User() {}  // JPA uses the default no arg constructor to create objects when retrieving from db
 
