@@ -1,3 +1,5 @@
+import './Counter.css'
+
 export default function Counter() {
 
     function incrementCounter() {
