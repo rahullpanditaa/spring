@@ -1,24 +1,24 @@
 import { useState } from 'react'
 import './Counter.css'
 
-export default function Counter() {
+export default function Counter({by}) {
 
     const [count, setCount] = useState(0) // returns the current state value and a function to change the state val
 
     function incrementCounter() {
-        setCount(count + 1)
+        setCount(prevCount => prevCount + by)
     }
 
     function decrementCounter() {
-        setCount(count - 1)
+        setCount(prevCount => prevCount - by)
     }
 
     return (
         <div className="Counter">
             <span className="count">{count}</span>
             <div>
-                <button className="incrementCounterButton commonButtonStyle" onClick={incrementCounter}>+1</button>
-                <button className='decrementCounterButton commonButtonStyle' onClick={decrementCounter}>-1</button>
+                <button className="incrementCounterButton commonButtonStyle" onClick={incrementCounter}>+{by}</button>
+                <button className='decrementCounterButton commonButtonStyle' onClick={decrementCounter}>-{by}</button>
             </div>
         </div>
     )
