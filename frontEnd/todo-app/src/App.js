@@ -1,11 +1,13 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      Application update
+      <Header></Header>
+      <p>3 components - Header, component one, footer</p>
       <ComponentOne></ComponentOne>
+      <Footer></Footer>
     </div>
   );
 }
@@ -14,6 +16,18 @@ function App() {
 function ComponentOne() {
   return (
     <div className='FirstComponent'>First Component</div>
+  )
+}
+
+function Header() {
+  return (
+    <h1>A Simple React UI</h1>
+  )
+}
+
+function Footer() {
+  return (
+    <footer>blah blah blah</footer>
   )
 }
 
