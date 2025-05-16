@@ -1,4 +1,5 @@
 // import logo from './logo.svg';
+import { Component } from 'react';
 import './App.css';
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
       <Header></Header>
       <p>3 components - Header, component one, footer</p>
       <ComponentOne></ComponentOne>
+      <ClassComponent></ClassComponent>
       <Footer></Footer>
     </div>
   );
@@ -29,6 +31,15 @@ function Footer() {
   return (
     <footer>blah blah blah</footer>
   )
+}
+
+class ClassComponent extends Component {
+
+  render() {
+    return (
+      <div className='classComponet'>A Class Component</div>
+    )
+  }
 }
 
 export default App;
