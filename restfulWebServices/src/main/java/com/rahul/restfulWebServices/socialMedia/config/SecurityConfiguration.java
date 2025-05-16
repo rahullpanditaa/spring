@@ -15,7 +15,11 @@ public class SecurityConfiguration {
         // all incoming requests should be authenticated
         httpSecurity.authorizeHttpRequests(auth -> auth.anyRequest().authenticated());
 
+        // basic auth popup
         httpSecurity.httpBasic(withDefaults());
+
+        //noinspection removal
+        httpSecurity.csrf().disable();
 
         return httpSecurity.build();
     }
