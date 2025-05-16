@@ -5,22 +5,16 @@ function App() {
   return (
     <div className="App">
       Application update
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
+      <ComponentOne></ComponentOne>
     </div>
   );
+}
+
+// whatever is returned from a component is what is shown as part/representation of that component
+function ComponentOne() {
+  return (
+    <div className='FirstComponent'>First Component</div>
+  )
 }
 
 export default App;
