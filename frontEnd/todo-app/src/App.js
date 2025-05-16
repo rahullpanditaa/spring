@@ -37,7 +37,7 @@ class ClassComponent extends Component {
 
   render() {
     return (
-      <div className='classComponet'>A Class Component</div>
+      <div className='classComponent'>A Class Component</div>
     )
   }
 }
