@@ -22,3 +22,11 @@
     padding: 60px;
     color: black;
 }
+
+.resetButton {
+  font-size: 40px;
+  margin: 10px;
+  border-radius: 20px;
+  background-color: blueviolet;
+  color: white;
+}
