@@ -15,7 +15,7 @@ export default function LoginComponent() {
         if (username === hardcodedUsername && password === hardcodedPassword) {
             console.log("login successful")
             setLoginStatus("SUCCESS")
-            navigate("/welcome") // route to this component if login success
+            navigate("/welcome", {state: {username}}) // route to this component if login success; pass state
         } else {
             console.log("login failed. invalid credentials")
             setLoginStatus("FAILURE")
