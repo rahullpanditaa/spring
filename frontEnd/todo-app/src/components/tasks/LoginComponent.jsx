@@ -1,17 +1,21 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 export default function LoginComponent() {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [loginStatus, setLoginStatus] = useState(null)   // failure or success
 
-    function IsLoginClicked() {
+    const navigate = useNavigate()
+
+    function HandleLoginClick() {
         const hardcodedUsername = "rahul"
         const hardcodedPassword = "guy_montag"
 
         if (username === hardcodedUsername && password === hardcodedPassword) {
             console.log("login successful")
             setLoginStatus("SUCCESS")
+            navigate("/welcome") // route to this component if login success
         } else {
             console.log("login failed. invalid credentials")
             setLoginStatus("FAILURE")
@@ -32,14 +36,12 @@ export default function LoginComponent() {
                        onChange={(e) => setPassword(e.target.value)}></input>
             </div>
             <div>
-                <button type="button" name="login" onClick={IsLoginClicked}
+                <button type="button" name="login" onClick={HandleLoginClick}
                  disabled={!username || !password}>Login</button>
             </div>
             {/* CONDITIONAL RENDERING */}
-            {loginStatus === "SUCCESS" && (
-                <div className="successMessage">Login success!</div>
-            )}
-            {loginStatus === "FAILURE" && (
+            {loginStatus === "FAILURE" && (   
+                // render this if login status equals failure
                 <div className="errorMessage">Login Failed! Invalid credentials</div>
             )}
         </div>
