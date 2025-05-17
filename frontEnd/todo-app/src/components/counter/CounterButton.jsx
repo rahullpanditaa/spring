@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import PropTypes, { func } from 'prop-types'
+import PropTypes from 'prop-types'
 import './Counter.css'
 
 export default function Counter() {
@@ -25,23 +25,13 @@ export default function Counter() {
     )
 }
 
-function CounterButton({by = 1}) {
-
-    const [count, setCount] = useState(0) // returns the current state value and a function to change the state val
-
-    function incrementCounter() {
-        setCount(prevCount => prevCount + by)
-    }
-
-    function decrementCounter() {
-        setCount(prevCount => (prevCount - by >= 0 ? prevCount - by : 0))
-    }
+function CounterButton({by = 1, increment, decrement}) {
 
     return (
         <div className="Counter">            
             <div>
-                <button className="incrementCounterButton commonButtonStyle" onClick={incrementCounter}>+{by}</button>
-                <button className='decrementCounterButton commonButtonStyle' onClick={decrementCounter}>-{by}</button>
+                <button className="incrementCounterButton commonButtonStyle" onClick={() => increment(by)}>+{by}</button>
+                <button className='decrementCounterButton commonButtonStyle' onClick={() => decrement(by)}>-{by}</button>
             </div>
         </div>
     )
@@ -50,7 +40,3 @@ function CounterButton({by = 1}) {
 CounterButton.propTypes = {
     by : PropTypes.number 
 }
-
-// Counter.defaultProps = {
-//     by : 1
-// }
