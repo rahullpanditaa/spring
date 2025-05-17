@@ -2,7 +2,7 @@ import { useState } from 'react'
 import PropTypes from 'prop-types'
 import './Counter.css'
 
-export default function Counter({by}) {
+export default function Counter({by = 1}) {
 
     const [count, setCount] = useState(0) // returns the current state value and a function to change the state val
 
@@ -27,5 +27,8 @@ export default function Counter({by}) {
 
 Counter.propTypes = {
     by : PropTypes.number 
-
 }
+
+// Counter.defaultProps = {
+//     by : 1
+// }
