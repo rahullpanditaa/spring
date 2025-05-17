@@ -1,13 +1,11 @@
 import './App.css';
-import Counter from './components/counter/Counter';
+import Counter from './components/counter/CounterButton';
 
 
 function App() {
   return (
     <div className="App">
       <Counter></Counter>
-      <Counter by={3}></Counter>
-      <Counter by={5}></Counter>
     </div>
   );
 }
