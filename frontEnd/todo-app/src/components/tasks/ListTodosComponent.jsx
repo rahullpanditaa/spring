@@ -6,10 +6,10 @@ export default function ListTodosComponent() {
     ]
 
     return (
-        <div className="ListTodosComponent">
+        <div className="container ListTodosComponent">
             <h2>Your tasks</h2>
             <div>
-                <table>
+                <table className="table">
                     <thead>
                         <tr>
                             <th>ID</th>
