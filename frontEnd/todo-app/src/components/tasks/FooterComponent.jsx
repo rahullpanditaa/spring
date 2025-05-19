@@ -1,7 +1,10 @@
+import './TodoApp.css'
 export default function FooterComponent() {
     return (
-        <div>
-            <p>Task Manager by Rahul</p>
-        </div>
+        <footer className="FooterComponent">
+            <div className="container">
+                Task Manager by Rahul @ 2025
+            </div>
+        </footer>
     )
 }

@@ -6,7 +6,7 @@ export default function WelcomeComponent() {
     return (
         <div className="WelcomeComponent">
             <h1>Welcome, {username}</h1>
-            <Link to="/todos"><h2>Manage your tasks</h2></Link>
+            <Link to="/todos"><h3>Manage your tasks</h3></Link>
         </div>
     )
 }

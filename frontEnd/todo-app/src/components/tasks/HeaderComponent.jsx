@@ -2,14 +2,26 @@ import { Link } from "react-router-dom";
 
 export default function HeaderComponent() {
     return (
-        <header className="HeaderComponent">
-            <nav>
-                <ul>
-                    <li><Link to='/welcome'>Home</Link></li>
-                    <li><Link to='/todos'>Your tasks</Link></li>
-                    <li><Link to='/logout'>Logout</Link></li>
-                </ul>
-            </nav>
+        <header className="border-bottom border-light border-5 mb-5 p-2">
+            <div className="container">
+                <div className="row">
+                    <nav className="navbar navbar-expand-lg">
+                        
+                            <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0" target="blank" rel="noopener noreferrer" className="navbar-brand ms-2 fs-2 fw-bold text-black">DON'T CLICK</a>
+                            <div className="collapse navbar-collapse">
+                        <ul className="navbar-nav">
+                            <li className="nav-item fs-5"><Link to='/welcome' className="nav-link">Home</Link></li>
+                            <li className="nav-item fs-5"><Link to='/todos' className="nav-link">Your tasks</Link></li>
+                        </ul>
+                        </div>
+                        <ul className="navbar-nav">
+                            <li className="nav-item fs-5"><Link to='/logout' className="nav-link">Logout</Link></li>
+                            <li className="nav-item fs-5"><Link to='/' className="nav-link">Login</Link></li>
+                        </ul>
+                        
+                    </nav>
+                </div>
+            </div>
         </header>
     )
 }
