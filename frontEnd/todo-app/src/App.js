@@ -4,6 +4,7 @@ import './App.css';
 import LoginComponent from './components/tasks/LoginComponent';
 import WelcomeComponent from './components/tasks/WelcomeComponent';
 import ErrorComponent from './components/tasks/ErrorComponent';
+import ListTodosComponent from './components/tasks/ListTodosComponent';
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
           <Routes>
             <Route path="/" element={<LoginComponent/>}></Route>
             <Route path="/welcome" element={<WelcomeComponent/>}></Route>
+            <Route path='/list-todos' element={<ListTodosComponent/>}></Route>
             <Route path='*' element={<ErrorComponent/>}></Route>
           </Routes>
       </BrowserRouter>

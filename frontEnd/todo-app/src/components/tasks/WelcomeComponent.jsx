@@ -6,6 +6,7 @@ export default function WelcomeComponent() {
     return (
         <div className="WelcomeComponent">
             <h1>Welcome, {username}</h1>
+            {/* <h2>Manage your tasks</h2> */}
         </div>
     )
 }
