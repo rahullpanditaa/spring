@@ -7,11 +7,13 @@ import FooterComponent from './FooterComponent';
 import LogoutComponent from './LogoutComponent';
 import './TodoApp.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './security/AuthContext';
 
 
 export default function TodoApp() {
     return (
         <div className="TodoApp">
+            <AuthProvider>
             <BrowserRouter>
                 <HeaderComponent/>
                     <Routes>
@@ -23,6 +25,7 @@ export default function TodoApp() {
                     </Routes>
                 <FooterComponent/>
             </BrowserRouter>
+            </AuthProvider>
         </div>
     )
 }
