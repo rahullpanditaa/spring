@@ -14,7 +14,7 @@ function App() {
           <Routes>
             <Route path="/" element={<LoginComponent/>}></Route>
             <Route path="/welcome" element={<WelcomeComponent/>}></Route>
-            <Route path='/list-todos' element={<ListTodosComponent/>}></Route>
+            <Route path='/todos' element={<ListTodosComponent/>}></Route>
             <Route path='*' element={<ErrorComponent/>}></Route>
           </Routes>
       </BrowserRouter>

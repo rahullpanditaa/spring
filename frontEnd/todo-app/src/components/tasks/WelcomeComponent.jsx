@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 
 export default function WelcomeComponent() {
     const location = useLocation()
@@ -6,7 +6,7 @@ export default function WelcomeComponent() {
     return (
         <div className="WelcomeComponent">
             <h1>Welcome, {username}</h1>
-            {/* <h2>Manage your tasks</h2> */}
+            <Link to="/todos"><h2>Manage your tasks</h2></Link>
         </div>
     )
 }
