@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { useAuth } from "./security/AuthContext"
 
 export default function LoginComponent() {
     const [username, setUsername] = useState("")
@@ -8,15 +9,21 @@ export default function LoginComponent() {
 
     const navigate = useNavigate()
 
+    const authContext = useAuth()
+
     function HandleLoginClick() {
         const hardcodedUsername = "rahul"
         const hardcodedPassword = "guy_montag"
 
         if (username === hardcodedUsername && password === hardcodedPassword) {
+            authContext.setIsAuthenticated(true)
+            console.log(authContext.isAuthenticated)
             console.log("login successful")
             setLoginStatus("SUCCESS")
             navigate("/welcome", {state: {username}}) // route to this component if login success; pass state
         } else {
+            authContext.setIsAuthenticated(false)
+            console.log(authContext.isAuthenticated)
             console.log("login failed. invalid credentials")
             setLoginStatus("FAILURE")
         }

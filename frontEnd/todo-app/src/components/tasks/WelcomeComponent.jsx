@@ -10,7 +10,7 @@ export default function WelcomeComponent() {
     return (
         <div className="WelcomeComponent">
             <h1>Welcome, {username}</h1>
-            <p>current global state being stored in context is ${authContext.number}</p>
+            {/* <p>current global state being stored in context is ${authContext.number}</p> */}
         </div>
     )
 }

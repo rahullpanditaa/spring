@@ -7,16 +7,18 @@ export const AuthContext = createContext()
 export default function AuthProvider({children}) {
 
     // put some state to be provided to children components
-    const [number, setNumber] = useState(0)
+    const [number, setNumber] = useState(69)
+
+    const [isAuthenticated, setIsAuthenticated] = useState(false)
 
     return (
-        <AuthContext.Provider value={{number}}>
+        <AuthContext.Provider value={{number, isAuthenticated, setIsAuthenticated}}>
             {children}
         </AuthContext.Provider>
     )
 
 }
 
-export function UseAuth() {
+export function useAuth() {
     return useContext(AuthContext)
 }
