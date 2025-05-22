@@ -1,8 +1,7 @@
 package com.rahul.fullStackRestAPI.todoApp.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
@@ -11,10 +10,13 @@ import java.time.LocalDate;
 public class Todo {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String username;
     private String courseDescription;
+
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate targetDate;
     private Boolean done;
 
