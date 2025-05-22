@@ -12,20 +12,11 @@ export default function LoginComponent() {
     const authContext = useAuth()
 
     function HandleLoginClick() {
-        const hardcodedUsername = "rahul"
-        const hardcodedPassword = "guy_montag"
-
-        if (username === hardcodedUsername && password === hardcodedPassword) {
-            authContext.setIsAuthenticated(true)
-            console.log(authContext.isAuthenticated)
-            console.log("login successful")
-            setLoginStatus("SUCCESS")
+        if (authContext.login(username, password)) {
+            setLoginStatus("success")
             navigate("/welcome", {state: {username}}) // route to this component if login success; pass state
         } else {
-            authContext.setIsAuthenticated(false)
-            console.log(authContext.isAuthenticated)
-            console.log("login failed. invalid credentials")
-            setLoginStatus("FAILURE")
+            setLoginStatus("failure")
         }
     }
 
@@ -47,7 +38,7 @@ export default function LoginComponent() {
                  disabled={!username || !password}>Login</button>
             </div>
             {/* CONDITIONAL RENDERING */}
-            {loginStatus === "FAILURE" && (   
+            {loginStatus === "failure" && (   
                 // render this if login status equals failure
                 <div className="errorMessage">Login Failed! Invalid credentials</div>
             )}

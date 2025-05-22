@@ -7,16 +7,23 @@ export const AuthContext = createContext()
 export default function AuthProvider({children}) {
 
     // put some state to be provided to children components
-    const [number, setNumber] = useState(69)
-
     const [isAuthenticated, setIsAuthenticated] = useState(false)
+
+    function login(username, password) {
+        if (username === "rahul" && password === "raskolnikov") {
+            setIsAuthenticated(true)
+            return true
+        } else {
+            setIsAuthenticated(false)
+        }
+    }
 
     function logout() {
         setIsAuthenticated(false)
     }
 
     return (
-        <AuthContext.Provider value={{number, isAuthenticated, setIsAuthenticated, logout}}>
+        <AuthContext.Provider value={{isAuthenticated, login, logout}}>
             {children}
         </AuthContext.Provider>
     )
