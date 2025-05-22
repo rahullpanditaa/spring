@@ -19,7 +19,7 @@ export default function TodoApp() {
                         <Routes>
                             <Route path='/' element={<LoginComponent/>}></Route>
                             <Route element={<SecureRoutes/>}>
-                                <Route path='/welcome/:username' element={<WelcomeComponent/>}></Route>
+                                <Route path='/welcome' element={<WelcomeComponent/>}></Route>
                                 <Route path='/todos' element={<ListTodosComponent/>}></Route>
                                 <Route path='/logout' element={<LogoutComponent/>}></Route>
                             </Route>
