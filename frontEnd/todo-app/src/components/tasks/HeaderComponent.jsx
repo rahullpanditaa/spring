@@ -34,7 +34,8 @@ export default function HeaderComponent() {
                                 <li className="nav-item fs-5"><Link to='/' className="nav-link">Login</Link></li>
                             )}
                             {authenticationStatus && (
-                                <li className="nav-item fs-5"><Link to='/logout' className="nav-link">Logout</Link></li>
+                                <li className="nav-item fs-5"><Link to='/logout' className="nav-link" 
+                                onClick={() => authContext.logout()}>Logout</Link></li>
                             )}                           
                         </ul>                        
                     </nav>
