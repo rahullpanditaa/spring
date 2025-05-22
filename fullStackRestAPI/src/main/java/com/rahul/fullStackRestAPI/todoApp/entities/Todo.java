@@ -1,30 +1,38 @@
-package com.rahul.fullStackRestAPI.helloWorldApp.entities;
+package com.rahul.fullStackRestAPI.todoApp.entities;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "tasks")
 public class Todo {
 
-    private int id;
+    @Id
+    private Integer id;
+
     private String username;
-    private String taskDescription;
+    private String courseDescription;
     private LocalDate targetDate;
-    private boolean done;
+    private Boolean done;
 
     public Todo() {}
 
-    public Todo(int id, String username, String taskDescription, LocalDate targetDate, boolean done) {
+    public Todo(Integer id, String username, String courseDescription, LocalDate targetDate, Boolean done) {
         this.id = id;
         this.username = username;
-        this.taskDescription = taskDescription;
+        this.courseDescription = courseDescription;
         this.targetDate = targetDate;
         this.done = done;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -36,12 +44,12 @@ public class Todo {
         this.username = username;
     }
 
-    public String getTaskDescription() {
-        return taskDescription;
+    public String getCourseDescription() {
+        return courseDescription;
     }
 
-    public void setTaskDescription(String taskDescription) {
-        this.taskDescription = taskDescription;
+    public void setCourseDescription(String courseDescription) {
+        this.courseDescription = courseDescription;
     }
 
     public LocalDate getTargetDate() {
@@ -52,11 +60,11 @@ public class Todo {
         this.targetDate = targetDate;
     }
 
-    public boolean isDone() {
+    public Boolean getDone() {
         return done;
     }
 
-    public void setDone(boolean done) {
+    public void setDone(Boolean done) {
         this.done = done;
     }
 
@@ -65,7 +73,7 @@ public class Todo {
         return "Todo{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
-                ", taskDescription='" + taskDescription + '\'' +
+                ", courseDescription='" + courseDescription + '\'' +
                 ", targetDate=" + targetDate +
                 ", done=" + done +
                 '}';
