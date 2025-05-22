@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 // create a context to store some state to be shared with multiple components
 export const AuthContext = createContext()
@@ -15,4 +15,8 @@ export default function AuthProvider({children}) {
         </AuthContext.Provider>
     )
 
+}
+
+export function UseAuth() {
+    return useContext(AuthContext)
 }
