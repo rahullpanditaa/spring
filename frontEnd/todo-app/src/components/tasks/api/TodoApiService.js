@@ -7,5 +7,5 @@ const todoAppApiClient = axios.create (
 )
 
 export function RetrieveAllTodosForUser(username) {
-    todoAppApiClient.get(`/users/${username}/todos`)
+    return todoAppApiClient.get(`/users/${username}/todos`)
 }

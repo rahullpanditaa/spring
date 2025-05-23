@@ -1,13 +1,21 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { RetrieveAllTodosForUser } from "./api/TodoApiService"
 
 export default function ListTodosComponent() {
 
     const [todos, setTodos] = useState([]) // state that holds list of todos recieved from rest api; default empty
 
-    // const todos = [
-    //     {id : 1, description : "Build a full stack application", targetDate : new Date(), done : false},
-    //     {id : 2, description : "Deploy full stack application", targetDate : new Date(), done : false}
-    // ]
+    // tells react component needs to perform a certain activity after rendering jsx
+    useEffect (
+        () => RefreshTodos()
+    )
+
+    function RefreshTodos() {
+        RetrieveAllTodosForUser("rahul").then(response => console.log(response)).catch(error => console.log(error))
+
+    }
+
+    
 
     return (
         <div className="container ListTodosComponent">
