@@ -1,10 +1,11 @@
 import { Link, useLocation } from "react-router-dom"
-import axios from "axios"
+import { GetHelloWorldApiResponse } from "./api/HelloWorldApiService"
 
 function callHelloWorldRestApi() {
     console.log("rest api endpoint")
-    axios.get("http://localhost:8080/hello-world").then((response) => successfulResponse(response)).
-    catch((error) => errorResponse(error)).finally(() => console.log("cleanup"))
+    const apiRequestResponse = GetHelloWorldApiResponse()
+    apiRequestResponse.then((response) => successfulResponse(response)).catch((error) => errorResponse(error)).finally(() => console.log("cleanup"))
+    // if request is a success, callback method in then is called
 }
 
 function successfulResponse(response) {
