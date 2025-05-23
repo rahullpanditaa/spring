@@ -1,9 +1,13 @@
+import { useState } from "react"
+
 export default function ListTodosComponent() {
 
-    const todos = [
-        {id : 1, description : "Build a full stack application", targetDate : new Date(), done : false},
-        {id : 2, description : "Deploy full stack application", targetDate : new Date(), done : false}
-    ]
+    const [todos, setTodos] = useState([]) // state that holds list of todos recieved from rest api; default empty
+
+    // const todos = [
+    //     {id : 1, description : "Build a full stack application", targetDate : new Date(), done : false},
+    //     {id : 2, description : "Deploy full stack application", targetDate : new Date(), done : false}
+    // ]
 
     return (
         <div className="container ListTodosComponent">
