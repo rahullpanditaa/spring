@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react"
-import { RetrieveAllTodosForUser } from "./api/TodoApiService"
+import { DeleteTodoForUserWithGivenID, RetrieveAllTodosForUser } from "./api/TodoApiService"
 
 export default function ListTodosComponent() {
 
     const [todos, setTodos] = useState([]) // state that holds list of todos recieved from rest api; default empty
+    const [message, setMessage] = useState(null)
 
     // tells react component needs to perform a certain activity after rendering jsx
     useEffect (() => RefreshTodos(), [])
@@ -13,11 +14,21 @@ export default function ListTodosComponent() {
             {  setTodos(response.data)
             }).catch(error => console.log(error))
 
-    }    
+    }
+    
+    function DeleteTodo(id) {
+        DeleteTodoForUserWithGivenID("rahul",id).then(
+            () => {
+                setMessage(`Deleted todo with id = ${id}`)
+                RefreshTodos()
+            }
+        ).catch(error => console.log(error))
+    }
 
     return (
         <div className="container ListTodosComponent">
             <h2>Your tasks</h2>
+            {message && <div className="alert alert-warning">{message}</div>}
             <div>
                 <table className="table">
                     <thead>
@@ -34,7 +45,7 @@ export default function ListTodosComponent() {
                                 <td>{todo.description}</td>
                                 <td>{todo.targetDate.toString()}</td>
                                 <td>{todo.done ? "Yes" : "No"}</td>
-                                <td><button className="btn btn-warning">Delete</button></td>
+                                <td><button className="btn btn-warning" onClick={() => DeleteTodo(todo.id)}>Delete</button></td>
                             </tr>
                         ))}
                     </tbody>

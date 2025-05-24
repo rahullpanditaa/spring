@@ -9,3 +9,8 @@ const todoAppApiClient = axios.create (
 export function RetrieveAllTodosForUser(username) {
     return todoAppApiClient.get(`/users/${username}/todos`)
 }
+
+export function DeleteTodoForUserWithGivenID(username, id) {
+    // sending a DELETE request 
+    return todoAppApiClient.delete(`/users/${username}/todos/${id}`)
+}
