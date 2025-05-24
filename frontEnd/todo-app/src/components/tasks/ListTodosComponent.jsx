@@ -6,19 +6,14 @@ export default function ListTodosComponent() {
     const [todos, setTodos] = useState([]) // state that holds list of todos recieved from rest api; default empty
 
     // tells react component needs to perform a certain activity after rendering jsx
-    useEffect (
-        () => RefreshTodos()
-    )
+    useEffect (() => RefreshTodos(), [])
 
     function RefreshTodos() {
         RetrieveAllTodosForUser("rahul").then(response => 
-            {  console.log(response)
-                setTodos(response.data)
+            {  setTodos(response.data)
             }).catch(error => console.log(error))
 
-    }
-
-    
+    }    
 
     return (
         <div className="container ListTodosComponent">
@@ -27,19 +22,19 @@ export default function ListTodosComponent() {
                 <table className="table">
                     <thead>
                         <tr>
-                            <th>ID</th>
                             <th>Description</th>
                             <th>Target Date</th>
                             <th>Completed</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         {todos.map(todo => (
                             <tr key={todo.id}>
-                                <td>{todo.id}</td>
                                 <td>{todo.description}</td>
-                                <td>{todo.targetDate.toString()}</td> {/* return date as string value*/}
+                                <td>{todo.targetDate.toString()}</td>
                                 <td>{todo.done ? "Yes" : "No"}</td>
+                                <td><button className="btn btn-warning">Delete</button></td>
                             </tr>
                         ))}
                     </tbody>
