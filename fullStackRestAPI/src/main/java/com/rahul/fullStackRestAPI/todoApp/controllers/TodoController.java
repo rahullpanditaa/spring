@@ -21,11 +21,11 @@ public class TodoController {
         return todoRepository.findByUsername(username);
     }
 
-    @GetMapping("/users/{username}/todos/{id}")
-    public ResponseEntity<Todo> retrieveTodoByIdOfGivenUser(@PathVariable String username, @PathVariable Integer id) {
-        return todoRepository.findByUsernameAndId(username, id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
-    }
-
+//    @GetMapping("/users/{username}/todos/{id}")
+//    public ResponseEntity<Todo> retrieveTodoByIdOfGivenUser(@PathVariable String username, @PathVariable Integer id) {
+//        return todoRepository.findByUsernameAndId(username, id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
+//    }
+//
     @PostMapping("/users/{username}/todos")
     public void createTodoForGivenUser(@PathVariable String username, @RequestBody Todo todo) {
         todoRepository.save(todo);

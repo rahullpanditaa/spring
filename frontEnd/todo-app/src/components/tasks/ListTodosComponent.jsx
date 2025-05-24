@@ -11,7 +11,10 @@ export default function ListTodosComponent() {
     )
 
     function RefreshTodos() {
-        RetrieveAllTodosForUser("rahul").then(response => console.log(response)).catch(error => console.log(error))
+        RetrieveAllTodosForUser("rahul").then(response => 
+            {  console.log(response)
+                setTodos(response.data)
+            }).catch(error => console.log(error))
 
     }
 
@@ -35,7 +38,7 @@ export default function ListTodosComponent() {
                             <tr key={todo.id}>
                                 <td>{todo.id}</td>
                                 <td>{todo.description}</td>
-                                <td>{todo.targetDate.toDateString()}</td> {/* return date as string value*/}
+                                <td>{todo.targetDate.toString()}</td> {/* return date as string value*/}
                                 <td>{todo.done ? "Yes" : "No"}</td>
                             </tr>
                         ))}

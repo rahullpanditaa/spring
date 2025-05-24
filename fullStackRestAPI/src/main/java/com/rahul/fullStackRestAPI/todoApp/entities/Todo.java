@@ -14,7 +14,7 @@ public class Todo {
     private Integer id;
 
     private String username;
-    private String courseDescription;
+    private String description;
 
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate targetDate;
@@ -22,10 +22,10 @@ public class Todo {
 
     public Todo() {}
 
-    public Todo(Integer id, String username, String courseDescription, LocalDate targetDate, Boolean done) {
+    public Todo(Integer id, String username, String description, LocalDate targetDate, Boolean done) {
         this.id = id;
         this.username = username;
-        this.courseDescription = courseDescription;
+        this.description = description;
         this.targetDate = targetDate;
         this.done = done;
     }
@@ -46,12 +46,12 @@ public class Todo {
         this.username = username;
     }
 
-    public String getCourseDescription() {
-        return courseDescription;
+    public String getDescription() {
+        return description;
     }
 
-    public void setCourseDescription(String courseDescription) {
-        this.courseDescription = courseDescription;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public LocalDate getTargetDate() {
@@ -75,7 +75,7 @@ public class Todo {
         return "Todo{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
-                ", courseDescription='" + courseDescription + '\'' +
+                ", description='" + description + '\'' +
                 ", targetDate=" + targetDate +
                 ", done=" + done +
                 '}';
