@@ -22,7 +22,7 @@ export default function TodoApp() {
                             <Route element={<SecureRoutes/>}>
                                 <Route path='/welcome' element={<WelcomeComponent/>}></Route>
                                 <Route path='/todos' element={<ListTodosComponent/>}></Route>
-                                <Route path='/update-todo' element={<UpdateTodo/>}></Route>
+                                <Route path='/update-todo/:id' element={<UpdateTodo/>}></Route>
                                 <Route path='/logout' element={<LogoutComponent/>}></Route>
                             </Route>
                             <Route path='*' element={<ErrorComponent/>}></Route>

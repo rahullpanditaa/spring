@@ -14,3 +14,8 @@ export function DeleteTodoForUserWithGivenID(username, id) {
     // sending a DELETE request 
     return todoAppApiClient.delete(`/users/${username}/todos/${id}`)
 }
+
+export function RetrieveTodo(username, id) {
+    return todoAppApiClient.get(`/users/${username}/todos/${id}`)
+
+}

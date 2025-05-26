@@ -33,9 +33,9 @@ export default function ListTodosComponent() {
         ).catch(error => console.log(error))
     }
 
-    function UpdateTodo() {
+    function UpdateTodo(id) {
         console.log("update button clicked")
-        navigate('/update-todo')
+        navigate(`/update-todo/${id}`)
     }
 
     return (
@@ -60,7 +60,7 @@ export default function ListTodosComponent() {
                                 <td>{todo.targetDate.toString()}</td>
                                 <td>{todo.done ? "Yes" : "No"}</td>
                                 <td><button className="btn btn-warning" onClick={() => DeleteTodo(todo.id)}>Delete</button></td>
-                                <td><button className="btn btn-success" onClick={UpdateTodo}>Update</button></td>
+                                <td><button className="btn btn-success" onClick={() => UpdateTodo(todo.id)}>Update</button></td>
                             </tr>
                         ))}
                     </tbody>
