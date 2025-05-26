@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { DeleteTodoForUserWithGivenID, RetrieveAllTodosForUser } from "./api/TodoApiService"
 import { useAuth } from "./security/AuthContext"
+import { useNavigate } from "react-router-dom"
 
 export default function ListTodosComponent() {
 
@@ -9,10 +10,9 @@ export default function ListTodosComponent() {
 
     const authContext = useAuth()
 
-    const username = authContext.username
+    const navigate = useNavigate()
 
-    // tells react component needs to perform a certain activity after rendering jsx
-    useEffect (() => RefreshTodos(), [])
+    const username = authContext.username
 
     function RefreshTodos() {
         RetrieveAllTodosForUser(username).then(response => 
@@ -20,6 +20,9 @@ export default function ListTodosComponent() {
             }).catch(error => console.log(error))
 
     }
+
+    // tells react component needs to perform a certain activity after rendering jsx
+    useEffect (() => RefreshTodos(), [RefreshTodos])    
     
     function DeleteTodo(id) {
         DeleteTodoForUserWithGivenID(username,id).then(
@@ -28,6 +31,11 @@ export default function ListTodosComponent() {
                 RefreshTodos()
             }
         ).catch(error => console.log(error))
+    }
+
+    function UpdateTodo() {
+        console.log("update button clicked")
+        navigate('/update-todo')
     }
 
     return (
@@ -42,6 +50,7 @@ export default function ListTodosComponent() {
                             <th>Target Date</th>
                             <th>Completed</th>
                             <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -51,6 +60,7 @@ export default function ListTodosComponent() {
                                 <td>{todo.targetDate.toString()}</td>
                                 <td>{todo.done ? "Yes" : "No"}</td>
                                 <td><button className="btn btn-warning" onClick={() => DeleteTodo(todo.id)}>Delete</button></td>
+                                <td><button className="btn btn-success" onClick={UpdateTodo}>Update</button></td>
                             </tr>
                         ))}
                     </tbody>

@@ -9,6 +9,7 @@ import './TodoApp.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import AuthProvider from './security/AuthContext';
 import SecureRoutes from './SecureRoutes';
+import UpdateTodo from './UpdateTodo';
 
 export default function TodoApp() {
     return (
@@ -21,6 +22,7 @@ export default function TodoApp() {
                             <Route element={<SecureRoutes/>}>
                                 <Route path='/welcome' element={<WelcomeComponent/>}></Route>
                                 <Route path='/todos' element={<ListTodosComponent/>}></Route>
+                                <Route path='/update-todo' element={<UpdateTodo/>}></Route>
                                 <Route path='/logout' element={<LogoutComponent/>}></Route>
                             </Route>
                             <Route path='*' element={<ErrorComponent/>}></Route>
