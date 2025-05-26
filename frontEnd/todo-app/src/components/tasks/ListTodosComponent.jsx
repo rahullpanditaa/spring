@@ -1,23 +1,28 @@
 import { useEffect, useState } from "react"
 import { DeleteTodoForUserWithGivenID, RetrieveAllTodosForUser } from "./api/TodoApiService"
+import { useAuth } from "./security/AuthContext"
 
 export default function ListTodosComponent() {
 
     const [todos, setTodos] = useState([]) // state that holds list of todos recieved from rest api; default empty
     const [message, setMessage] = useState(null)
 
+    const authContext = useAuth()
+
+    const username = authContext.username
+
     // tells react component needs to perform a certain activity after rendering jsx
     useEffect (() => RefreshTodos(), [])
 
     function RefreshTodos() {
-        RetrieveAllTodosForUser("rahul").then(response => 
+        RetrieveAllTodosForUser(username).then(response => 
             {  setTodos(response.data)
             }).catch(error => console.log(error))
 
     }
     
     function DeleteTodo(id) {
-        DeleteTodoForUserWithGivenID("rahul",id).then(
+        DeleteTodoForUserWithGivenID(username,id).then(
             () => {
                 setMessage(`Deleted todo with id = ${id}`)
                 RefreshTodos()
